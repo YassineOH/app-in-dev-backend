@@ -5,10 +5,10 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "build-client": "cd client && npm run build",
+    "build": "cd client && npm run build",
     "install-client": "cd client && npm install",
     "server": "nodemon server --ignore client",
-    "heroku-postbuild": "npm run install && npm run build-client",
+    "heroku-postbuild": "npm run install",
     "client": "cd client && npm run dev",
     "dev": "concurrently --kill-others-on-fail \" npm run server\" \"npm run client\""
   },
