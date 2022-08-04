@@ -29,7 +29,7 @@ const CustomTable: FC<Props> = ({ list, fields }) => {
         </tr>
       </thead>
       <tbody>
-        {list.reverse().map((slice, ind) => (
+        {list.map((slice, ind) => (
           <CustomRow
             slice={slice}
             fields={fields}

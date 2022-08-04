@@ -6,7 +6,7 @@ import { StatusCodes } from "http-status-codes"
 
 
 const getAllServices = async (req, res) => {
-    const services = await Service.find({}).populate({ path: "postedBy", select: "name _id" })
+    const services = await Service.find({}).populate({ path: "postedBy", select: "name _id" }).sort("-createAt")
 
     res.status(StatusCodes.OK).json({ services, count: services.length })
 }
