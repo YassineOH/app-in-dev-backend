@@ -53,7 +53,7 @@ app.use(mongoSanitize())
 
 
 app.use("/api/v1/auth", apiLimiter, authRoutes)
-app.use("/api/v1/services", authMiddleware, serviceRoutes)
+app.use("/api/v1/services", serviceRoutes)
 app.use("/api/v1/clients", authMiddleware, clientRoutes)
 app.use("/api/v1/technicians", authMiddleware, technicianRoutes)
 
