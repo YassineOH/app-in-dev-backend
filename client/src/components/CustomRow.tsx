@@ -2,6 +2,7 @@ import { FC, useId } from "react";
 import { useDispatch } from "react-redux";
 import moment from "moment";
 import { FaEdit } from "react-icons/fa";
+import "moment/dist/locale/fr";
 
 import type { ClientState, ServiceState, TechnicianState } from "../types";
 import {
@@ -58,14 +59,19 @@ const CustomRow: FC<Props> = ({ slice, fields, ind }) => {
 
         {fields.map((field) => {
           switch (field) {
-            case "date":
             case "createdAt":
               return (
                 <td key={id + key + field}>
                   {isServiceSlice &&
-                    moment(slice[field])
-                      .locale("fr")
-                      .format("MMMM Do YYYY, h:mm")}
+                    moment(slice[field]).format("MMMM Do YYYY, h:mm")}
+                </td>
+              );
+
+            case "date":
+              return (
+                <td key={id + key + field}>
+                  {isServiceSlice &&
+                    moment(slice[field]).locale("fr").format("LL")}
                 </td>
               );
 
