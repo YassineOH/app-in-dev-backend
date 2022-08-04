@@ -46,7 +46,6 @@ const corsConfig = {
     optionsSuccessStatus: 200
 }
 
-app.use(cors(corsConfig))
 
 
 // Routes
@@ -59,6 +58,7 @@ app.use(xss())
 app.use(mongoSanitize())
 
 
+app.use(cors(corsConfig))
 app.use("/api/v1/auth", apiLimiter, authRoutes)
 app.use("/api/v1/services", serviceRoutes)
 app.use("/api/v1/clients", authMiddleware, clientRoutes)
