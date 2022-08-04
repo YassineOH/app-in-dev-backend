@@ -3,7 +3,6 @@ import morgan from "morgan"
 import dotenv from "dotenv"
 import "express-async-errors"
 
-
 import authRoutes from "./routes/authRoutes.js"
 import serviceRoutes from "./routes/serviceRoutes.js"
 import clientRoutes from "./routes/clientRoutes.js"
@@ -21,15 +20,14 @@ import xss from "xss-clean"
 import mongoSanitize from "express-mongo-sanitize"
 
 // limiter
-
 import rateLimiter from "express-rate-limit"
 
-// serve static assets (client folder)
+// cors 
+import cors from "cors"
 
+// serve static assets (client folder)
 import path, { dirname } from "path"
 import { fileURLToPath } from "url"
-
-
 
 
 
@@ -40,6 +38,15 @@ const apiLimiter = rateLimiter({
     max: 20,
     message: "to many request from this api please try later after 15 min"
 })
+
+
+// cors configuration
+const corsConfig = {
+    origin: "http://127.0.0.1:5173/",
+    optionsSuccessStatus: 200
+}
+
+app.use(cors(corsConfig))
 
 
 // Routes
