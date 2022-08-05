@@ -4,7 +4,7 @@ const ClientSchema = mongoose.Schema({
     name: {
         type: String,
         required: [true, "please provide a name"],
-        minlength: 5
+        minlength: 3
     },
 
     phoneNumber: {
