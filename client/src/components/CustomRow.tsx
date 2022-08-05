@@ -63,7 +63,9 @@ const CustomRow: FC<Props> = ({ slice, fields, ind }) => {
               return (
                 <td key={id + key + field}>
                   {isServiceSlice &&
-                    moment(slice[field]).format("MMMM Do YYYY, h:mm")}
+                    moment(slice[field])
+                      .locale("fr")
+                      .format("MMMM Do YYYY, h:mm")}
                 </td>
               );
 

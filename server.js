@@ -42,7 +42,7 @@ const apiLimiter = rateLimiter({
 
 // cors configuration
 const corsConfig = {
-    origin: "https://lm3lem.netlify.app",
+    origin: "http://127.0.0.1:5173",
     optionsSuccessStatus: 200
 }
 
